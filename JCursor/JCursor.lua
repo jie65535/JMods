@@ -41,61 +41,8 @@ local function updateCursors()
     end
 end
 
-function G.FUNCS.refreshCursors(arg_736_0)
-    sendDebugMessage("refreshCursors")
-    updateCursors()
-end
-
 -- init cursors
 updateCursors()
-
-
-SMODS.registerUIElement("JCursor", {
-    {
-        n = G.UIT.R,
-        config = {
-            padding = 0.2,
-            align = "cm"
-        },
-        nodes = {
-            UIBox_button({
-                minw = 3.85,
-                button = "openModDirectory",
-                label = {
-                    "Open directory"
-                }
-            }),
-            UIBox_button({
-                minw = 3.85,
-                button = "refreshCursors",
-                label = {
-                    "Refresh cursor"
-                }
-            }),
-            UIBox_button({
-                minw = 3.85,
-                button = "openJCursorGithub",
-                label = {
-                    "Github"
-                }
-            }),
-        }
-    }
-})
-
-function G.FUNCS.openModDirectory(arg_736_0)
-    url = "file://" .. love.filesystem.getSaveDirectory() .. MOD_DIRECTORY
-    sendDebugMessage("openModDirectory: " .. url)
-    love.system.openURL(url)
-end
-
-function G.FUNCS.openJCursorGithub(arg_736_0)
-    sendDebugMessage("Open Github!")
-	love.system.openURL("https://github.com/jie65535/JMods/tree/main/JCursor")
-end
-
-
-
 
 local function myDrag()
     if cursorDrag then
